@@ -1,0 +1,156 @@
+/*
+Author: Pranit Yadav
+Ride Fares & Payments
+*/
+
+--------------------------------------------------------------------------------
+
+Select
+    sysdate,
+    TO_CHAR(sysdate, 'YEAR') as year,
+    TO_CHAR(sysdate, 'FMDAY, MONTH') as day_month,
+    TO_CHAR(sysdate, 'MM/DD/YY') ||' - hour:'|| TO_CHAR(sysdate, 'HH') as date_with_hours,
+    TRUNC(TO_DATE('31-DEC-2025', 'DD-MON-YYYY')) - TRUNC(SYSDATE) AS days_til_end_of_year,
+    lower(TO_CHAR(sysdate, 'FMMON DAY YYYY')) as lowercase
+from dual;
+
+
+--------------------------------------------------------------------------------
+
+select ride_id, 
+       driver_id || ' ' || rider_id || ' ' || dropoff_address as details,
+       to_char(end_datetime, 'MON-DD') as drop_date,
+       to_char(end_datetime, 'HH:mm:ss') as drop_time,
+       to_char(final_fare, '$999.99') as final_fare,
+       nvl(to_char(discount_amount, '$999.99'), 'none') as discount
+from ride
+order by ride_id, driver_id;
+       
+
+--------------------------------------------------------------------------------
+
+select distinct upper(substr(rdr.first_name, 1, 1)) || '. ' || upper(rdr.last_name) as rider_name,
+       rdr.email
+from rider rdr
+join ride r
+on rdr.rider_id = r.rider_id
+where end_datetime >= sysdate - 30
+order by rider_name;
+
+
+--------------------------------------------------------------------------------
+
+select r.rider_id, 
+       r.ride_id, 
+       r.end_datetime,  
+       to_char(r.final_fare, '$999.99') as orig_fare,
+       d.discount_id,
+       to_char(d.discount_percent * 100, '99') || '%' as discount_percent,
+       to_char(r.initial_fare * d.discount_percent, '$99.99') as amount_off,
+       to_char(r.initial_fare - (r.initial_fare * d.discount_percent), '$99.99') as new_fare
+from ride r
+join discounts d on r.rider_id = d.rider_id
+where r.discount_amount is null
+and d.used_flag = 'N'
+and d.expiration_date > '01-JAN-2023'
+and r.rider_id = 3000002
+order by ride_id;
+
+     
+--------------------------------------------------------------------------------
+
+select cardholder_last_name,
+       length(billing_address) as billing_address_length,
+       round(expiration_date - sysdate, 0) as days_until_card_expiration
+from rider_payment
+where expiration_date > sysdate
+order by days_until_card_expiration;
+       
+       
+--------------------------------------------------------------------------------
+
+select driver_id,
+       last_name,
+       email,
+       substr(email, 1, instr(email, '@') - 1) as emailname,
+       substr(email, instr(email, '@') + 1) as emaildomain
+from driver
+order by emaildomain;
+
+
+--------------------------------------------------------------------------------
+
+select rdr.first_name || ' ' || rdr.last_name as rider_name, 
+       rp. cardtype,
+       '****-****-****-' || substr(cardnumber, -4) AS redacted_card_num
+from rider rdr
+join rider_payment rp on rdr.rider_id = rp.rider_id
+where cardtype in ('MSTR', 'VISA')
+order by rdr.last_name;
+       
+       
+--------------------------------------------------------------------------------
+--8.
+
+select 
+    case
+        when rides_given < 3 then '0-Newbie'
+        when rides_given >= 3 and rides_given < 10 then '1-Bronze Level'
+        when rides_given >= 10 and rides_given < 25 then '2-Silver Level'
+        when rides_given >= 25 then '3-Gold Level'
+    end as driver_level,
+    first_name, 
+    last_name, 
+    email, 
+    rides_given
+from driver
+order by 1, 3;
+    
+    
+--------------------------------------------------------------------------------
+--9.
+
+select first_name,
+       last_name,
+       driver_id,
+       email,
+       rides_given,
+       dense_rank() over(order by rides_given DESC) as driver_rank
+from driver;
+
+
+--------------------------------------------------------------------------------
+--10A.
+
+select first_name,
+       last_name,
+       driver_id,
+       email,
+       rides_given,
+       dense_rank() over(order by rides_given DESC) as driver_rank
+from 
+  (
+    select first_name,
+           last_name,
+           driver_id,
+           email,
+           rides_given
+    from driver
+  )
+where rownum <= 7;
+
+--10B.
+
+select *
+from 
+  (
+    select first_name,
+           last_name,
+           driver_id,
+           email,
+           rides_given,
+           dense_rank() over(order by rides_given DESC) as driver_rank
+    from driver
+  )
+where driver_rank <= 3;
+
