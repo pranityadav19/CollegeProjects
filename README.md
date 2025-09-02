@@ -72,5 +72,5 @@ This repository contains a collection of my academic and personal projects acros
 ## 📬 Contact
 Created by **Pranit Yadav**  
 - 📧 Email: [pranit.ydv@gmail.com]  
-- 💼 [LinkedIn]((https://www.linkedin.com/in/pranityadav19/))  
+- 💼 [LinkedIn](https://www.linkedin.com/in/pranityadav19/)  
 - 🐙 [GitHub](https://github.com/pranityadav19)  
