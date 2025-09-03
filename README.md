@@ -14,7 +14,7 @@ This repository contains a collection of my academic and personal projects acros
 
 ### 2. **Heart Disease Prediction Models** (`Heart_Disease_Prediction_Models.ipynb`)
 - **Description**: Predicts the likelihood of heart disease using supervised learning algorithms.  
-- **Skills**: Machine Learning (Logistic Regression, Bagging, Random Forests, XGBoost, Neural Netowrk), Data Preprocessing, Model Evaluation.  
+- **Skills**: Machine Learning (Logistic Regression, Bagging, Random Forests, XGBoost, Neural Network), Data Preprocessing, Model Evaluation.  
 - **Libraries**: scikit-learn, pandas, matplotlib, seaborn.  
 
 ---
