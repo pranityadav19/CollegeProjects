@@ -1,6 +1,6 @@
-# Projects
+# Python SQL Assignments
 
-This repository contains a collection of my academic and personal projects across **data science, analytics, and software development**. Each project focuses on solving real-world problems using Python, SQL, and statistical modeling techniques.  
+This repository contains a collection of my smaller assignments and practice projects across **Python and SQL**. Each project is designed to strengthen my understanding of programming, data analysis, and database concepts by applying them to targeted problems. While these projects are smaller in scope than my standalone portfolio work, they highlight core skills in computation, logic, and data handling.
 
 ---
 
