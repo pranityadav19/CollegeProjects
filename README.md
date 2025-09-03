@@ -99,7 +99,7 @@ CREATE TABLE rider_dw (
 );
 ```
 
-**Sample Output**:
+## 🖥️ Sample Output
 Rider Name     | Card Type | Redacted Card Number  
 ---------------|-----------|-----------------------  
 John Smith     | VISA      | ****-****-****-1234  
