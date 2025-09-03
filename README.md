@@ -99,14 +99,10 @@ CREATE TABLE rider_dw (
 );
 ```
 
-## 🖥 Sample Output
-
-| Rider Name  | Card Type | Redacted Card Number |
-|-------------|-----------|-----------------------|
-| John Smith  | VISA      | ****-****-****-1234  |
-| Priya Patel | MSTR      | ****-****-****-5678  |
-
-
+| Rider Name  | Card Type | Redacted Card Number   |
+|-------------|-----------|------------------------|
+| John Smith  | VISA      | `****-****-****-1234`  |
+| Priya Patel | MSTR      | `****-****-****-5678`  |
 
 ---
 
