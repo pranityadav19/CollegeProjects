@@ -6,26 +6,9 @@ This repository contains a collection of my smaller assignments and practice pro
 
 ## 📂 Project List
 
-### 1. **Final Grade Calculator** (`Final_Grade_Calculator.py`)
-This project implements a Python-based grade calculator that allows users to input exam, homework, research, and final project scores. Each component is weighted, and the program validates input ranges to ensure accuracy. It then calculates the weighted average and assigns the final letter grade.  
-
-- **Key Features**: Input validation, weighted averages, modular functions for reusability.  
-- **Skills Demonstrated**: Python programming, control flow, user input handling, functional decomposition.  
-- **Practical Use**: Can be adapted into a simple grading assistant tool for students and instructors.
-
-## 🖥️ Sample Output
-```bash
-Enter exam score: 85
-Enter homework score: 90
-Enter project score: 95
-
-Final Score: 90.5
-Final Grade: A
-```
-
 ---
 
-### 2. **Retirement Savings Growth Calculator** (`Retirement_Savings_Growth_Calculator.py`)
+### 1. **Retirement Savings Growth Calculator** (`Retirement_Savings_Growth_Calculator.py`)
 A financial planning tool written in Python that models how retirement savings grow year over year. Users can set annual contributions, interest rates, and retirement timelines. The program calculates compound interest and outputs a detailed year-by-year growth table along with the final savings total.  
 
 - **Key Features**: Compound growth calculations, dynamic user input, tabular display of results.  
@@ -49,7 +32,7 @@ Final Retirement Savings: $29,877.59
 
 ---
 
-### 3. **ETL & Warehouse SQL** (`ETL & Warehouse SQL.txt`)
+### 2. **ETL & Warehouse SQL** (`ETL & Warehouse SQL.txt`)
 This project simulates the design and implementation of a small-scale **data warehouse**. It consolidates data from multiple sources (`rider` and `riders_acquired` tables), applies transformations via SQL views, and integrates them into a clean warehouse schema (`rider_dw`). Stored procedures handle inserts, updates, and merges to maintain consistency.  
 
 - **Key Features**: Schema creation, views for data standardization, ETL procedures (insert, merge, and full upsert).  
@@ -73,7 +56,7 @@ CREATE TABLE rider_dw (
 
 ---
 
-### 4. **Ride Fares & Payments** (`Ride Fares & Payments.txt`)
+### 3. **Ride Fares & Payments** (`Ride Fares & Payments.txt`)
 A set of SQL queries designed to analyze and manage data for a ride-hailing platform. The queries handle tasks such as formatting dates, calculating discounts, masking sensitive payment data, and ranking drivers by performance. This project demonstrates how SQL can be applied to solve practical business problems in transportation and payments.  
 
 - **Key Features**:  
