@@ -32,7 +32,26 @@ Final Retirement Savings: $29,877.59
 
 ---
 
-### 2. **ETL & Warehouse SQL** (`ETL & Warehouse SQL.txt`)
+### 2. **Final Grade Calculator** (`Final_Grade_Calculator.py`)
+A Python program that calculates a student’s **final grade** based on weighted exam, homework, and project scores. This project was designed as a practice in writing clean, functional code that accepts user input, validates it, and produces both numeric and letter grades.  
+
+- **Key Features**: Weighted averages, user input validation, letter grade assignment.  
+- **Skills Demonstrated**: Functions, conditional logic, loops, error handling in Python.  
+- **Practical Use**: Automates the grading process, reducing the time and risk of error compared to manual calculations. Can be adapted for different grading policies by adjusting weights.  
+
+**🖥️ Sample Output**
+```bash
+Enter exam score: 85
+Enter homework score: 90
+Enter project score: 95
+
+Final Score: 90.5
+Final Grade: A
+```
+
+---
+
+### 3. **ETL & Warehouse SQL** (`ETL & Warehouse SQL.txt`)
 This project simulates the design and implementation of a small-scale **data warehouse**. It consolidates data from multiple sources (`rider` and `riders_acquired` tables), applies transformations via SQL views, and integrates them into a clean warehouse schema (`rider_dw`). Stored procedures handle inserts, updates, and merges to maintain consistency.  
 
 - **Key Features**: Schema creation, views for data standardization, ETL procedures (insert, merge, and full upsert).  
@@ -56,7 +75,7 @@ CREATE TABLE rider_dw (
 
 ---
 
-### 3. **Ride Fares & Payments** (`Ride Fares & Payments.txt`)
+### 4. **Ride Fares & Payments** (`Ride Fares & Payments.txt`)
 A set of SQL queries designed to analyze and manage data for a ride-hailing platform. The queries handle tasks such as formatting dates, calculating discounts, masking sensitive payment data, and ranking drivers by performance. This project demonstrates how SQL can be applied to solve practical business problems in transportation and payments.  
 
 - **Key Features**:  
